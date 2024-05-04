@@ -3,10 +3,43 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border;
+  :root {
+    --background: var(--gray-2);
+    --foreground: var(--gray-12);
+
+    --sidebar: var(--gray-3);
+
+    --violet-1: 262 12% 9%;
+    --violet-2: 271 16% 14%;
+    --violet-3: 232 33% 24%;
+    --violet-4: 261 37% 33%;
+    --violet-5: 265 40% 38%;
+    --violet-6: 263 41% 43%;
+    --violet-7: 257 33% 49%;
+    --violet-8: 246 48% 54%;
+    --violet-9: 249 56% 69%;
+    --violet-10: 253 40% 63%;
+    --violet-11: 244 68% 83%;
+    --violet-12: 237 28% 93%;
+
+    --gray-1: 240 5% 7%;
+    --gray-2: 240 5% 10%;
+    --gray-3: 240 5% 14%;
+    --gray-4: 240 5% 17%;
+    --gray-5: 240 5% 19%;
+    --gray-6: 240 5% 23%;
+    --gray-7: 240 5% 29%;
+    --gray-8: 240 5% 38%;
+    --gray-9: 240 5% 50%;
+    --gray-10: 240 5% 60%;
+    --gray-11: 240 5% 76%;
+    --gray-12: 240 4% 93%;
   }
+
   html {
     @apply scroll-smooth antialiased;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
