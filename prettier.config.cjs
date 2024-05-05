@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   semi: true,
   singleQuote: false,
   jsxSingleQuote: false,
@@ -16,15 +16,10 @@ const config = {
     "<THIRD_PARTY_MODULES>",
     "",
     "^types$",
-    "^@/lib/(.*)$",
-    "^@/components/(.*)$",
-    "^@/styles/(.*)$",
-    "^@/app/(.*)$",
+    "^@repo/(.*)$",
     "",
     "^[./]",
   ],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
   importOrderTypeScriptVersion: "5.4.3",
 };
-
-module.exports = config;
