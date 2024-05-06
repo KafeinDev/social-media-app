@@ -5,7 +5,16 @@
 @layer base {
   :root {
     --background: var(--gray-2);
+
     --foreground: var(--gray-12);
+    --foreground-alt: var(--gray-11);
+    --foreground-alt-2: var(--gray-10);
+
+    --primary: var(--violet-11);
+    --secondary: var(--gray-8);
+
+    --border: var(--gray-4);
+    --border-alt: var(--gray-6);
 
     --sidebar: var(--gray-3);
 
