@@ -1,1 +1,1 @@
-module.exports = require("@repo/tailwind/postcss.config.cjs");
+module.exports = require("@social-media-app/tailwind/postcss.config.cjs");

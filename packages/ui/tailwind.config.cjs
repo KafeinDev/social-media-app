@@ -1,4 +1,4 @@
-import sharedConfig from "@repo/tailwind/index.cjs";
+import sharedConfig from "@social-media-app/tailwind/index.cjs";
 
 module.exports = {
   ...sharedConfig,

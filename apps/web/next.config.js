@@ -1,4 +1,4 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  transpilePackages: ["@repo/ui", "@repo/tailwind"],
+  transpilePackages: ["@social-media-app/ui", "@social-media-app/tailwind"],
 };

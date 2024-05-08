@@ -4,7 +4,7 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "@repo/tailwind/tailwind.config.js",
+    "config": "@social-media-app/tailwind/tailwind.config.js",
     "css": "./styles/globals.css",
     "baseColor": "gray",
     "cssVariables": false,

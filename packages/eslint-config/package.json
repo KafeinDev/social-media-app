@@ -1,9 +1,10 @@
 {
-  "name": "@repo/eslint-config",
+  "name": "@social-media-app/eslint-config",
   "version": "0.0.0",
   "private": true,
   "files": [
     "library.js",
+    "express.js",
     "next.js",
     "react-internal.js"
   ],

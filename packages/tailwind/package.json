@@ -1,5 +1,5 @@
 {
-  "name": "@repo/tailwind",
+  "name": "@social-media-app/tailwind",
   "private": true,
   "main": "index.cjs",
   "devDependencies": {
