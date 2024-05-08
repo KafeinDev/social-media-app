@@ -36,7 +36,7 @@ type NavLinkProps = {
 };
 
 const NavLink = (props: NavLinkProps) => {
-  const icon = props.isSelected ? props.icon : props.iconOutline || props.icon;
+  const icon = props.isSelected ? props.icon : props.iconOutline ?? props.icon;
   return (
     <Link href={props.href}>
       <div
