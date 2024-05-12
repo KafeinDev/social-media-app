@@ -11,6 +11,8 @@ module.exports = {
   tailwindConfig: "./packages/tailwind/index.cjs",
   tailwindFunctions: ["cn"],
   importOrder: [
+    "^server-only|client-only$",
+    "",
     "^(express/(.*)$)|^(express$)",
     "^(react/(.*)$)|^(react$)",
     "^(next/(.*)$)|^(next$)",
@@ -18,6 +20,7 @@ module.exports = {
     "",
     "^types$",
     "^@social-media-app/(.*)$",
+    "^~/(.*)$",
     "",
     "^[./]",
   ],
