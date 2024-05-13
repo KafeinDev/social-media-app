@@ -47,6 +47,8 @@ model Token {
 }
 
 enum TokenType {
-  EMAIL
-  API
+  ACCESS
+  REFRESH
+  VERIFY_EMAIL
+  RESET_PASSWORD
 }
