@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@social-media-app/core": "^0.0.0",
     "@social-media-app/prisma": "*",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
