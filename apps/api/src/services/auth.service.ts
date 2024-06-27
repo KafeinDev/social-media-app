@@ -47,17 +47,17 @@ const login = async (email: string, password: string): Promise<User> => {
 
 const generateAuthTokens = async (user: User) => {
   const accessTokenExpires = Date.now() + 30 * 60 * 1000;
-  const accessToken = await generateJWT(
+  const accessToken = await generateToken(
     user.id,
     TokenType.ACCESS,
-    accessTokenExpires
+    new Date(accessTokenExpires)
   );
 
   const refreshTokenExpires = Date.now() + 30 * 24 * 60 * 60 * 1000;
-  const refreshToken = await generateJWT(
+  const refreshToken = await generateToken(
     user.id,
     TokenType.REFRESH,
-    refreshTokenExpires
+    new Date(refreshTokenExpires)
   );
 
   return {
@@ -72,4 +72,32 @@ const generateAuthTokens = async (user: User) => {
   };
 };
 
-export default { register, login, generateAuthTokens };
+const generateToken = async (
+  userId: string,
+  type: TokenType,
+  expires: Date
+) => {
+  const token = await generateJWT(userId, type, expires.getTime());
+  await prisma.token.create({
+    data: {
+      userId,
+      type,
+      value: token,
+      expiration: expires,
+    },
+  });
+  return token;
+};
+
+const verifyToken = async (token: string, type: TokenType) => {
+  const decoded = await verifyJWT(token);
+  const tokenFromDb = await prisma.token.findFirst({
+    where: { userId: decoded.userId, type, value: token },
+  });
+  if (!tokenFromDb) {
+    throw new AuthError("Invalid token", 401);
+  }
+  return decoded;
+};
+
+export default { register, login, generateAuthTokens, verifyToken };

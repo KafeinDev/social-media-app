@@ -5,6 +5,7 @@ import { validate } from "~/middlewares/validation";
 import { authValidation } from "~/middlewares/validations";
 
 const router = express.Router();
+router.get("/me", authController.me);
 router.post(
   "/register",
   validate(authValidation.register),

@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 import { TokenType } from "@social-media-app/core/models/token.model";
 import env from "~/env";
@@ -19,7 +19,7 @@ const generateJWT = async (
 };
 
 const verifyJWT = async (token: string, secret = env.jwtSecret!) => {
-  return jwt.verify(token, secret);
+  return jwt.verify(token, secret) as JwtPayload;
 };
 
 export { generateJWT, verifyJWT };
