@@ -11,10 +11,10 @@ type Token = {
 };
 
 enum TokenType {
-  ACCESS = "access",
-  REFRESH = "refresh",
-  VERIFY_EMAIL = "verify-email",
-  RESET_PASSWORD = "reset-password",
+  ACCESS = "ACCESS",
+  REFRESH = "REFRESH",
+  VERIFY_EMAIL = "VERIFY_EMAIL",
+  RESET_PASSWORD = "RESET_PASSWORD",
 }
 
 export default Token;

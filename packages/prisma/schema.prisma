@@ -16,6 +16,65 @@ model User {
   password Password?
   tokens   Token[]
 
+  posts Post[]
+  likes Like[]
+
+  inviters Friend[] @relation(name: "inviters")
+  invitees Friend[] @relation(name: "invitees")
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+model Friend {
+  id Int @id @default(autoincrement())
+
+  inviter   User   @relation(name: "inviters", fields: [inviterId], references: [id])
+  inviterId String
+
+  invitee   User   @relation(name: "invitees", fields: [inviteeId], references: [id])
+  inviteeId String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@index([inviteeId])
+  @@index([inviterId])
+}
+
+model Post {
+  id String @id @default(cuid())
+
+  rootPostId   String?
+  parentPostId String?
+
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String
+
+  content        String
+  attachmentUrls String[]
+
+  viewCount    Int @default(0)
+  likeCount    Int @default(0)
+  commentCount Int @default(0)
+  repostCount  Int @default(0)
+
+  isRepost Boolean @default(false)
+  isReply  Boolean @default(false)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+model Like {
+  id String @id @default(cuid())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
@@ -30,6 +89,8 @@ model Password {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
+
+  @@index([userId])
 }
 
 model Token {
@@ -40,10 +101,12 @@ model Token {
   expiration DateTime
 
   user   User   @relation(fields: [userId], references: [id])
-  userId String @unique
+  userId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([userId])
 }
 
 enum TokenType {
