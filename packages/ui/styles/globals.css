@@ -11,11 +11,17 @@
     --foreground-alt-2: var(--gray-10);
 
     --primary: var(--violet-11);
+
     --secondary: var(--gray-8);
+    --secondary-alt: var(--gray-7);
 
     --border: var(--gray-4);
     --border-alt: var(--gray-6);
 
+    --popover: var(--gray-5);
+    --tooltip: var(--gray-1);
+    --muted: var(--gray-2);
+    
     --sidebar: var(--gray-3);
 
     --violet-1: 262 12% 9%;
@@ -45,6 +51,9 @@
     --gray-12: 240 4% 93%;
   }
 
+  * {
+    @apply border-border;
+  }
   html {
     @apply scroll-smooth antialiased;
   }
